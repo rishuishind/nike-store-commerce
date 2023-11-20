@@ -1,4 +1,6 @@
+/* eslint-disable react/prop-types */
 import React from "react";
+import Clip from "./utils/Clip";
 
 const Hero = ({
     heroapi: { title, subtitle, btntext, img, sociallinks, videos },
@@ -12,11 +14,19 @@ const Hero = ({
                         <h1 className='text-6xl lg:text-5xl md:text-4xl sm:text-3xl xsm:text-2xl font-extrabold filter drop-shadow-sm text-slate-200'>{title}</h1>
                         <h1 className='text-6xl lg:text-5xl md:text-4xl sm:text-3xl xsm:text-2xl font-extrabold filter drop-shadow-sm text-slate-200'>{subtitle}</h1>
                         <button type="button" className='button-theme bg-slate-200 shadow-slate-200 rounded-xl my-5'>{btntext}</button>
-                        {/* <div className=''></div>
-                        <div className=''></div> */}
+                        <div className=''>
+                            {videos?.map((val, idx) => (
+                                <Clip
+                                    key={idx}
+                                    imgsrc={val.imgsrc}
+                                    clip={val.clip}
+                                />
+                            ))}
+                        </div>
+                        <div className=''></div>
                     </div>
                     <div className="">
-                        <img src={img} alt="hero-img/img" className="" />
+                        <img src={img} alt="hero-img/img" className='w-auto h-[45vh] lg:h-[35vh] md:h-[31vh] sm:h-[21vh] xsm:h-[19vh] transitions-theme -rotate-[25deg] hover:rotate-0 object-fill ' />
                     </div>
                 </div>
             </div>
