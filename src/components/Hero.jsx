@@ -23,7 +23,7 @@ const Hero = ({
                                 />
                             ))}
                         </div>
-                        <div className='grid items-center absolute top-[33vh] lg:top-[27vh] right-0'>
+                        <div className='grid items-center absolute top-[33vh] lg:top-[27vh] right-0 gap-3'>
                             {sociallinks.map((val, idx) => (
                                 <SocialLinks
                                     key={idx}
@@ -33,7 +33,7 @@ const Hero = ({
                         </div>
                     </div>
                     <div className="">
-                        <img src={img} alt="hero-img/img" className='w-auto mt-8 h-[45vh] lg:h-[35vh] md:h-[31vh] sm:h-[21vh] xsm:h-[19vh] transitions-theme -rotate-[25deg] hover:rotate-0 object-fill ' />
+                        <img src={img} alt="hero-img/img" className='w-auto mt-7 h-[45vh] lg:h-[35vh] md:h-[31vh] sm:h-[21vh] xsm:h-[19vh] transitions-theme -rotate-[25deg] hover:rotate-0 object-fill ' />
                     </div>
                 </div>
             </div>
