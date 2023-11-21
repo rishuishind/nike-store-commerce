@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable react/prop-types */
 
 const FlexContent = ({ ifExists, endpoint: { heading, title, text, btn, url, img } }) => {
@@ -8,7 +9,7 @@ const FlexContent = ({ ifExists, endpoint: { heading, title, text, btn, url, img
                     <h1 className='text-gradient font-bold text-4xl sm:text-3xl'>{heading}</h1>
                     <h1 className='text-5xl lg:text-4xl md:text-3xl sm:text-2xl font-bold text-slate-900 filter drop-shadow-lg'>{title}</h1>
                     <p className='xl:text-sm my-4 text-slate-900'>{text}</p>
-                    <a href={url} className='flex items-center' role="button">
+                    <a href={url} className='flex items-center' target="_blank" role="button">
                         <button type="button" className="button-theme bg-slate-900 shadow-slate-900 text-slate-100 py-1.5">{btn}</button>
                     </a>
                 </div>
