@@ -4,6 +4,7 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import Title from './Title';
 import { ClockIcon, HashtagIcon, HeartIcon } from '@heroicons/react/24/solid';
+import { truncate } from 'lodash';
 
 
 const Stories = ({ story: { title, news } }) => {
@@ -44,7 +45,7 @@ const Stories = ({ story: { title, news } }) => {
                                     </div>
                                     <div className='grid items-center justify-items-start px-4'>
                                         <h1 className='text-base font-semibold lg:text-sm'>{val.title}</h1>
-                                        <p className='text-sm text-justify lg:text-xs'>{val.text}</p>
+                                        <p className='text-sm text-justify lg:text-xs'>{truncate(val.text, { length: 175 })}</p>
                                     </div>
                                     <div className='flex items-center justify-center px-4 w-full '>
                                         <a href={val.url}
