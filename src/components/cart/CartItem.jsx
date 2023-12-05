@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { MinusIcon, PlusIcon, TrashIcon } from "@heroicons/react/24/outline"
 import { useDispatch } from "react-redux"
-import { setRemoveItemFromCart } from "../../app/CartSlice.js";
+import { setDecreaseItemQuantity, setIncreaseQuantity, setRemoveItemFromCart } from "../../app/CartSlice.js";
 
 const CartItem = ({ item: { id, title, text, img, color, shadow, price, cartQuantity } }) => {
 
@@ -9,6 +9,14 @@ const CartItem = ({ item: { id, title, text, img, color, shadow, price, cartQuan
 
     const onRemoveItem = () => {
         dispatch(setRemoveItemFromCart({ id, title, text, img, color, shadow, price, cartQuantity }));
+    }
+
+    const onIncreaseItem = () => {
+        dispatch(setIncreaseQuantity({ id, title, text, img, color, shadow, price, cartQuantity }));
+    }
+
+    const onDecreaseItem = () => {
+        dispatch(setDecreaseItemQuantity({ id, title, text, img, color, shadow, price, cartQuantity }));
     }
 
     return (
@@ -24,9 +32,9 @@ const CartItem = ({ item: { id, title, text, img, color, shadow, price, cartQuan
                             <p className="text-sm text-slate-800 lg:text-xs">{text}</p>
                         </div>
                         <div className="flex items-center justify-around w-full">
-                            <button type='button' className='bg-theme-cart rounded w-6 h-6 lg:w-5 lg:h-5 flex items-center justify-center active:scale-90'><MinusIcon className='w-5 h-5 lg:w-4 lg:h-4 text-white stroke-[2]' /></button>
+                            <button type='button' onClick={onDecreaseItem} className='bg-theme-cart rounded w-6 h-6 lg:w-5 lg:h-5 flex items-center justify-center active:scale-90'><MinusIcon className='w-5 h-5 lg:w-4 lg:h-4 text-white stroke-[2]' /></button>
                             <div className="bg-theme-cart rounded text-white font-medium lg:text-xs w-7 h-6 lg:h-5 lg:w-6 flex items-center justify-center">{cartQuantity}</div>
-                            <button type='button' className='bg-theme-cart rounded w-6 h-6 lg:w-5 lg:h-5 flex items-center justify-center active:scale-90'><PlusIcon className='w-5 h-5 lg:w-4 lg:h-4 text-white stroke-[2]' /></button>
+                            <button type='button' onClick={onIncreaseItem} className='bg-theme-cart rounded w-6 h-6 lg:w-5 lg:h-5 flex items-center justify-center active:scale-90'><PlusIcon className='w-5 h-5 lg:w-4 lg:h-4 text-white stroke-[2]' /></button>
                         </div>
                     </div>
                 </div>
